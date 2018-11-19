@@ -1,1 +1,35 @@
-<p>This is the partial for view 1.</p>
+<h1 class="text-center">Welcome to Handan's Blog</h1>
+<table class="table table-hover text-center col-md-12">
+   <thead>
+       <tr>
+
+       </tr>
+   </thead>
+   <tbody>
+       <tr ng-repeat="data in list track by $index">
+           <td class="col-md-12">
+               <p>
+               <h2>{{data.title}}</h2>
+               </p>
+               <p>{{data.content}}</p>
+               <table class="table table-striped col-md-5 col-md-12" style="border: lightsteelblue solid 5px;">
+                   <thead>
+                       <th>Comments</th>
+                   </thead>
+                   <tbody>
+                       <tr ng-repeat="com in data.comment track by $index">
+                           <td>{{com.text}}</td>
+                       </tr>
+                   </tbody>
+               </table>
+               <div>
+                   <form name="comment" ng-submit="addComment(data)">
+                       <textarea rows="4" cols="50" placeholder="Enter comment" ng-model="data.newComment"></textarea>
+                       <br>
+                       <button type="submit" class="btn btn-success">Submit</button>
+                   </form>
+               </div>
+           </td>
+       </tr>
+   </tbody>
+</table>

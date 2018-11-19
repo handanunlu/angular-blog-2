@@ -1,5 +1,15 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="container">
+  <form name="postad">
+    <h1>Add Blog</h1>
+    <br>
+    <div class="form-group">
+      <label>Title Of Blog</label>
+       <input class="form-control" placeholder="Title" ng-model="data.title" type="text">
+    </div>
+    <div class="form-group">
+      <label >Content</label>
+      <textarea class="form-control" placeholder="Please write us about what are you thinking" ng-model="data.content" type="text"></textarea>
+    </div>
+    <button ng-click="addPost()" class="btn btn-primary" type="button">Add Post</button>
+  </form>
+</div>
