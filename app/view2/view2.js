@@ -1,3 +1,4 @@
+
 'use strict';
 
 angular.module('myApp.view2', ['ngRoute'])
@@ -10,8 +11,12 @@ angular.module('myApp.view2', ['ngRoute'])
 }])
 
 .controller('View2Ctrl', ['$scope', function($scope) {
+  if (localStorage.getItem("posts") === null) {
+    $scope.allPosts = [];
+    localStorage.setItem('posts', JSON.stringify($scope.allPosts));
+  }
  $scope.allPosts = JSON.parse(localStorage.getItem('posts'));
- $scope.data = {id: $scope.allPosts[$scope.allPosts.length -1].id + 1, title: "", content: "", comment: [], newComment: ""};
+ $scope.data = { title: "", content: "", comment: [], newComment: ""};
  $scope.addPost = function () {
      $scope.allPosts.push($scope.data);
      localStorage.setItem('posts', JSON.stringify($scope.allPosts))
